@@ -1,0 +1,105 @@
+/* Basic Reset and Font setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* New, more interesting gradient */
+    background-image: linear-gradient(135deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%);
+    background-size: 200% 200%;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh; /* Ensures gradient covers the full view height */
+    animation: gradient-animation 15s ease infinite; /* Added animation for the gradient */
+}
+
+/* Added a subtle animation to the gradient */
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Better alignment */
+    align-items: center;
+    height: 100px;
+    padding: 0 5%; /* Adjusted padding */
+}
+
+#title-text {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#button-home {
+    text-decoration: none; /* Removes underline from link */
+}
+
+/* Glassmorphism container for the search bar */
+.search-container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.search-container form {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling for the new search input */
+#search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    width: 300px; /* Give it a set width */
+    margin-right: 15px;
+}
+
+#search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* General button styling */
+.icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    transition: all 0.3s ease;
+}
+
+.icon-button:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+.button-img {
+    height: 25px;
+    width: 25px;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px); /* Calculate height based on viewport minus nav height */
+    text-align: center;
+}
