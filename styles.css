@@ -103,3 +103,39 @@ nav {
     height: calc(100vh - 100px); /* Calculate height based on viewport minus nav height */
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Menu ke bawah */
+        height: auto;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    #title-text {
+        font-size: 2rem; /* Mengecilkan judul */
+        text-align: center;
+    }
+
+    .search-container {
+        width: 90%; /* Biar pas di layar HP */
+        padding: 15px;
+    }
+
+    #search-input {
+        width: 100%; /* Full width biar enak di ketik */
+        margin-right: 10px;
+        font-size: 1rem;
+    }
+
+    .icon-button {
+        height: 45px;
+        width: 45px;
+    }
+
+    #main {
+        flex-direction: column;
+        padding: 20px;
+        height: auto; /* Supaya konten nggak kepotong */
+    }
+}
