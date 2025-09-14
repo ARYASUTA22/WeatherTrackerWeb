@@ -18,7 +18,7 @@ body {
 /* Added a subtle animation to the gradient */
 @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    50% { background-position: 50% 100%; }
     100% { background-position: 0% 50%; }
 }
 
@@ -96,34 +96,118 @@ nav {
     width: 25px;
 }
 
+.search-img{
+    height: 25px;
+    width: 35px;
+}
+
 #main {
     display: flex;
+    flex-direction: column; /* Changed to column to stack search and results */
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Calculate height based on viewport minus nav height */
+    min-height: calc(100vh - 100px); /* Use min-height to allow content to grow */
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Weather Result Styles --- */
+#weather-display {
+    margin-top: 30px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#city-name {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+#weather-icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.25)); /* Add shadow to icon */
+}
+
+#temperature {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+#weather-description {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+#details-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    padding-top: 20px;
+}
+
+.detail-item {
     text-align: center;
 }
 
+.detail-item p:first-child {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.detail-item p:last-child {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#error-message {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 27, 27, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 27, 27, 0.7);
+}
+
+.hidden {
+    display: none;
+}
+/* --- End of Weather Result Styles --- */
+
+
+/* --- Media Query for Mobile --- */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column; /* Menu ke bawah */
+        flex-direction: column;
         height: auto;
         padding: 20px;
         gap: 15px;
     }
 
     #title-text {
-        font-size: 2rem; /* Mengecilkan judul */
+        font-size: 2rem;
         text-align: center;
     }
 
     .search-container {
-        width: 90%; /* Biar pas di layar HP */
+        width: 90%;
         padding: 15px;
     }
 
     #search-input {
-        width: 100%; /* Full width biar enak di ketik */
+        width: 100%;
         margin-right: 10px;
         font-size: 1rem;
     }
@@ -134,8 +218,29 @@ nav {
     }
 
     #main {
-        flex-direction: column;
-        padding: 20px;
-        height: auto; /* Supaya konten nggak kepotong */
+        height: auto;
+    }
+
+    /* --- Penyesuaian untuk Hasil Cuaca di Mobile --- */
+    #weather-display {
+        width: 90%; /* Membuat kartu hasil lebih lebar di layar kecil */
+        padding: 20px; /* Mengurangi padding di dalam kartu */
+    }
+
+    #city-name { 
+        font-size: 1.8rem; /* Mengecilkan font nama kota */
+    }
+    
+    #temperature { 
+        font-size: 3rem; /* Mengecilkan font suhu */
+    }
+    
+    #weather-description { 
+        font-size: 1.1rem; /* Mengecilkan font deskripsi */
+    }
+
+    #details-container {
+        flex-direction: column; /* Mengubah susunan detail dari menyamping menjadi ke bawah */
+        gap: 15px; /* Memberi jarak antar item detail */
     }
 }

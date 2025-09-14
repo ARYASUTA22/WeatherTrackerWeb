@@ -19,12 +19,40 @@
     </nav>
     <section id="main">
         <div class="search-container">
-            <form>
-                <input type="text" placeholder="Enter city or zip code..." id="search-input">
+            <form id="search-form">
+                <input type="text" placeholder="Enter city name..." id="search-input">
                 <button class="icon-button" type="submit">
-                    <img src="search-icon.png" class="button-img" alt="Search">
+                    <img src="search-icon.png" class="search-img" alt="Search">
                 </button>
             </form>
         </div>
+
+        <div id="weather-display" class="hidden">
+            <h2 id="city-name"></h2>
+            <img id="weather-icon" src="weather-icon.png" alt="Weather Icon">
+            <p id="temperature"></p>
+            <p id="weather-description"></p>
+            <div id="details-container">
+                <div class="detail-item">
+                    <p>Feels Like</p>
+                    <p id="feels-like"></p>
+                </div>
+                <div class="detail-item">
+                    <p>Humidity</p>
+                    <p id="humidity"></p>
+                </div>
+                <div class="detail-item">
+                    <p>Wind Speed</p>
+                    <p id="wind-speed"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="error-message" class="hidden">
+            <p>City not found. Please try again.</p>
+        </div>
     </section>
+
+    <script src="script.js"></script>
 </body> 
+</html>
